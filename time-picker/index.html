@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+	<head>
+
+		<!-- Required meta tags -->
+		<meta http-equiv=“Pragma” content=”no-cache”>
+		<meta http-equiv=“Expires” content=”-1″>
+		<meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+
+		<!-- Twitter -->
+		<meta name="twitter:site" content="@ermiglio">
+		<meta name="twitter:creator" content="@ermiglio">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Ermiglio">
+		<meta name="twitter:description" content="Ermiglio Booking Appointments App">
+		<meta name="twitter:image" content="https://ermiglio.com/img/ermiglio-social.png">
+
+		<!-- Facebook -->
+		<meta property="og:url" content="https://ermiglio.com">
+		<meta property="og:title" content="Ermiglio">
+		<meta property="og:description" content="Ermiglio Booking Appointments App">
+
+		<meta property="og:image" content="https://ermiglio.com/img/ermiglio-social.png">
+		<meta property="og:image:secure_url" content="https://ermiglio.com/img/ermiglio-social.png">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="600">
+
+		<!-- Meta -->
+		<meta name="description" content="Ermiglio Booking Appointments App">
+		<meta name="author" content="Ermiglio">
+
+		<title>Ermiglio Booking Appointments App</title>
+
+		<!-- vendor css -->
+
+		<!-- ermiglio CSS -->
+		<style type="text/css">
+
+			body {
+				margin: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+				"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+				"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+				line-height: 1.5;
+				color: #031b4e;
+				text-align: left;
+				background-color: #fff;
+			}
+
+			/* calendar */
+			.mini-calendar-container {
+				max-width: 320px;
+			}
+
+			.mini-calendar-grid {
+				display: grid;
+				grid-template-columns: repeat( 7, 1fr );
+			}
+
+			.mini-calendar-day-container {
+				overflow: hidden;
+				cursor: pointer;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.mini-calendar-day-container-today {
+				background-color: #5b47fb;
+			}
+
+			.mini-calendar-day-number {
+				font-size: 14px;
+				font-weight: 700;
+				color: #000;
+				display: flex;
+				justify-content: center;
+				align-content: center;
+			}
+
+			.mini-calendar-day-today{
+				color: #fff;
+			}
+
+			/* Header Month */
+			.mini-calendar-header-toolbar {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				margin: 10px;						
+			}
+
+			.mini-calendar-header-toolbar button {
+				display: flex;
+				height: 31px;
+				background-color: #fff;
+				border: 1px solid #cdd4e0;
+				padding: 0 9px;
+				margin: 5px;
+				align-items: center;
+				color: #1c273c;
+				font-size: 13px;
+				text-align: center;
+			}
+
+			.mini-calendar-month-name {
+				font-weight: 700;
+				text-transform: uppercase;
+				color: #1c273c;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 160px;
+				font-size: 16px;
+			}
+
+			.mini-calendar-day-name {
+				font-size: 12px;
+				font-weight: 600;
+				text-transform: uppercase;
+				color: #1c273c; 
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.mini-calendar-header-toolbar button:hover,
+			.mini-calendar-header-toolbar button:focus {
+				background-color: #e3e7ed;
+			}
+
+			button.mini-calendar-prev-button,
+			button.mini-calendar-next-button {
+				padding: 0;
+				width: 38px;
+				justify-content: center;
+				cursor: pointer;
+			}
+
+			.icon-left-single-arrow:after,
+			.icon-right-single-arrow:after {
+				font-family: "Ionicons";
+				font-size: 30px;
+				font-weight: 400;
+				line-height: 0.5;
+			}
+
+			.icon-left-single-arrow:after {
+				content: "‹";
+			}
+
+			.icon-right-single-arrow:after {
+				content: "›";
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="mini-calendar-container">
+			<div class="mini-calendar-header-toolbar">
+				<button class="mini-calendar-prev-button">
+					<span class="icon-left-single-arrow"></span>
+				</button>					
+				<span class="mini-calendar-month-name">MONTH</span>
+				<button class="mini-calendar-next-button">
+					<span class="icon-right-single-arrow"></span>
+				</button>
+			</div><!-- calendar header toolbar -->
+
+			<div id="mini-calendar-header" class="mini-calendar-grid">
+				<span class="mini-calendar-day-name">LUN</span>
+				<span class="mini-calendar-day-name">MAR</span>
+				<span class="mini-calendar-day-name">MER</span>
+				<span class="mini-calendar-day-name">GIO</span>
+				<span class="mini-calendar-day-name">VEN</span>
+				<span class="mini-calendar-day-name">SAB</span>
+				<span class="mini-calendar-day-name">DOM</span>
+			</div><!-- calenda header day -->
+
+			<div id="mini-calendar"></div>
+		</div><!-- calendar -->		
+
+		<!-- <ph-time-picker></ph-time-picker>-->
+
+		<!--
+		<time-picker hours="12" minutes="00"></time-picker>
+		<time-picker hours="24" minutes="00"></time-picker>
+		-->
+		
+		<script  src="js/time-picker.js"></script>
+		<script  src="js/mini-calendar.js"></script>
+
+
+		<script type="text/javascript">
+			/* init */
+			( async () => {
+
+				// load json
+				/*
+				async function loadJson( data ){
+					return fetch( `./${data}.json` )
+						.then( response => { return response.json(); })
+						.catch( err => { console.log( err ); });
+				};
+
+				// load js
+				async function loadJs( folder, file ) {
+					return import( `./${folder}/${file}` )
+						.then( module => { 
+							return module; 
+						})
+						.catch( error => { 
+							console.log( `Import File ${file} Error ${error}` ); 
+						});
+				};
+
+				// load module
+				async function loadModule( item ) {
+					let moduleLoad = await loadJs( "js", `${item[0]}.js` );
+
+					//let moduleLoaded = new moduleLoad.TimePicker();
+					let moduleLoaded = await new moduleLoad[item[1]]();
+					await moduleLoaded.template();
+					moduleClass.push( moduleLoaded );
+				}
+
+				const jsModules = [ ["time-picker", "TimePicker"] ];
+				const moduleClass = new Array();
+
+				const promisesJs = jsModules.map( loadModule );
+				await Promise.all( promisesJs );
+
+				async function initModule( item ) {
+					await item.init();
+				};
+
+				const promisesClass = moduleClass.map( initModule );
+				await Promise.all( promisesClass );
+				*/
+
+
+				//load template html
+				async function loadHtml( folder, file  ){
+					return fetch( `./${folder}/${file}` )
+						.then( response => { return response.text(); })
+						.catch( err => { console.log( err ); });
+				};
+
+				let domElement = "body";
+				let templateTag = "ph-time-picker";
+
+				const templatePlaceHolder = document.createElement( templateTag )
+				templatePlaceHolder.tag = "timepicker";
+				document.querySelectorAll( "BODY" )[0].prepend( templatePlaceHolder );				
+				document.querySelectorAll( "ph-time-picker" )[0].insertAdjacentHTML( 'afterend', await loadHtml( "html", "time-picker.html" ) );
+				document.querySelectorAll( "ph-time-picker" )[0].remove();
+	
+				const register = () => customElements.define( 'time-picker', TimePicker );
+				window.WebComponents ? window.WebComponents.waitFor( register ) : register();
+
+				timePickers = new Array();
+
+				timePickers.push( new TimePicker() );
+				timePickers[0].hours = "12";
+				timePickers[0].minutes = "00";
+				timePickers[0].updateDisplay();
+				document.querySelectorAll( "BODY" )[0].prepend( timePickers[0] );
+
+				/*
+
+				for ( let template of document.querySelectorAll( "[data-include-html]" ) ) {	
+					template.innerHTML = await loadHtml( "html", template.dataset.includeHtml );
+				};
+
+				let displayClass = new display();
+				let formCalendarClass = new formCalendar();
+
+				// load js
+				async function loadJs( folder, file ) {
+					return import( `./${folder}/${file}` )
+						.then( module => { 
+							return module; 
+						})
+						.catch( error => { 
+							console.log( `Import File ${file} Error ${error}` ); 
+						});
+				};
+
+				// load module
+				async function loadModule( item ) {
+					let moduleLoad = await loadJs( "js", `${item}.js` );
+					moduleClass.push( await new moduleLoad[item]() );
+				}
+
+				const jsModules = [ "calendar", "search" ];
+				const moduleClass = new Array();
+
+				const promisesJs = jsModules.map( loadModule );
+				await Promise.all( promisesJs );
+
+				async function initModule( item ) {
+					await item.init();
+				};
+
+				const promisesClass = moduleClass.map( initModule );
+				await Promise.all( promisesClass );
+
+				*/
+
+			})();
+		</script><!-- init -->
+	</body>
+</html>
